@@ -14,7 +14,7 @@ Then install [OpenCV](https://github.com/opencv/opencv), [TensorFlow](https://ww
 `matconvnet_hr101_to_pickle` reads weights of the MatConvNet pretrained model and 
 write back to a pickle file which is used in a TensorFlow model as initial weights.
 
-1. Download a [ResNet101-based pretrained model(hr_res101.mat)](https://www.cs.cmu.edu/%7Epeiyunh/tiny/hr_res101.mat) 
+1. Download a [ResNet101-based pretrained model(hr_res101.mat)](https://drive.google.com/file/d/1YO8zTXGCACRZvHDxtW8dEZL7CE8HVFJ8/view?usp=sharing) 
 from the authors' repo.
 
 2. Convert the model to a pickle file by:
