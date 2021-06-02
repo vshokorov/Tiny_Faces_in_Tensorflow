@@ -3,7 +3,9 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior() 
+
 import tiny_face_model
 import util
 from argparse import ArgumentParser
@@ -112,8 +114,8 @@ def evaluate(weight_file_path, data_dir, output_dir, prob_thresh=0.5, nms_thresh
         min_scale = min(np.floor(np.log2(np.max(clusters_w[normal_idx] / raw_w))),
                         np.floor(np.log2(np.max(clusters_h[normal_idx] / raw_h))))
         max_scale = min(1.0, -np.log2(max(raw_h, raw_w) / MAX_INPUT_DIM))
-        scales_down = pl.frange(min_scale, 0, 1.)
-        scales_up = pl.frange(0.5, max_scale, 0.5)
+        scales_down = np.arange(min_scale, 0, 1.)
+        scales_up = np.arange(0.5, max_scale, 0.5)
         scales_pow = np.hstack((scales_down, scales_up))
         scales = np.power(2.0, scales_pow)
         return scales
